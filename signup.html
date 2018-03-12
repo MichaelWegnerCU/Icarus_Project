@@ -2,11 +2,87 @@
 <html>
 <head>
 <title>Signup Page</title> 
+<!-- This is the sample script for the hide function. ALong with the style for the page. Will move this to a seperate file upon furhter review. -->
+<style>
+	#intro{
+		margin:auto;
+		width: 50%;
+		padding-left: 30%;
+	}
+	#student_sign_up{
+		margin: auto;
+    	width: 50%;
+		display: none;
+		
+		
+	}
+	#teacher_sign_up{
+		margin: auto;
+		width:50%;
+		display:none;
+		padding: 20px;
+	}
+	#st_select{
+		margin: auto;
+		width: 50%;
+		padding-left: 40%;
+	}
+	#welcome_statement{
+		width: 50%;
+		margin: auto;
+		text-align: center;
+	}
+	#who_are_you{
+		width: 50%;
+		margin:auto;
+		text-align: center;
+		
+	}
+</style>
+<script>
+	function studentshow() {
+    var x = document.getElementById("student_sign_up");
+	var y = document.getElementById("teacher_sign_up");
+    if (x.style.display === "block") {
+        x.style.display = "none";
+    } else {
+        x.style.display = "block";
+		y.style.display = "none";
+    }
+}
+	function teachershow() {
+    var x = document.getElementById("teacher_sign_up");
+	var y = document.getElementById("student_sign_up");
+
+    if (x.style.display === "block") {
+        x.style.display = "none";
+    } else {
+        x.style.display = "block";
+		y.style.display = "none";
+    }
+}
+</script>
 <body>
+	<div id="intro">
+	<h1> Welcome to Icarus</h1>
+	</div>
+	<div id="welcome_statement">
+		<p> Icarus allows students and teachers to connect live during lectures and provides students with better resource to aid in the learning process. Icarus also gives teachers tools to easily meausure student progress and analyze participation.</p>
+	</div>
+	<div id="who_are_you">
+		<h3> Are you a student or a teacher?</h3>
+	</div>
+<div id="st_select">
+<button onclick="studentshow()">Student</button>
+<button onclick="teachershow()">Teacher</button>
+</div>
+<br>
+</br>
+<div id="student_sign_up">
 <td>
 	<br>
         <td><strong>Username</strong></td>
-        </br>
+    </br>
         <input type="text" name="username" value="Pick a username"/>
         </td>
 	<br>
@@ -18,10 +94,34 @@
         <td><strong>Password</strong></td>
         </br>
 	<td>
-        <input type="text" name="password" value="Create a password"/>
+        <input type="password" name="password" value="Password"/>
         </td>
 	<br>
 	</br>
 	<input type="button" onclick="location.href='login.html';" value="Sign up for Icarus" />
+</div>
+<div id="teacher_sign_up">
+	<td>
+	<br>
+        <td><strong>Username</strong></td>
+    </br>
+        <input type="text" name="username" value="Pick a username"/>
+        </td>
+	<br>
+        <td><strong>Email</strong></td>
+        </br>
+        <input type="text" name="email" value="you@colorado.edu"/>
+        </td>
+	<br>
+        <td><strong>Password</strong></td>
+        </br>
+	<td>
+        <input type="password" name="password" value="Password"/>
+        </td>
+	<br>
+	</br>
+	<input type="button" onclick="location.href='login.html';" value="Sign up for Icarus" />
+</div>
+
 </body> 
 </html>
