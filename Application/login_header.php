@@ -14,7 +14,7 @@
         <div id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" href="index.php">Home </a>
+                    <a class="nav-link" href="user_homepage.php">Homepage </a>
                 </li>
                  <li class="nav-item">
                     <a class="nav-link" href="#">Sudo link 1</a>
@@ -23,7 +23,7 @@
                     <a class="nav-link" href="#">Sudo link 2</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="signin.php">Sign In</a>
+                    <a class="nav-link" href="signout.php">Sign Out</a>
                 </li>
             </ul>
       </div>

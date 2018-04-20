@@ -1,5 +1,6 @@
 <?php
 //signin.php
+session_start();
 include 'connect.php';
 include 'header.php';
 
@@ -64,14 +65,7 @@ else
             //notice the use of mysql_real_escape_string, keep everything safe!
             //also notice the sha1 function which hashes the password  <- may use this to better secure passwords, was changed to better test inital setup
             
-             $sql = "INSERT INTO users(user_name, user_pass, user_email ,user_date, user_ST)
-                VALUES('" . mysqli_real_escape_string($conn,$_POST['user_name']) . "',
-                       '" . mysqli_real_escape_string($conn,$_POST['user_pass']) . "',
-                       '" . mysqli_real_escape_string($conn,$_POST['user_email']) . "',
-                        NOW(),
-                        's'
-                        )";
-            
+           
             $sql = "SELECT user_id, user_name FROM users WHERE user_name = '" . mysqli_real_escape_string($conn,$_POST['user_name']) . "'
                     AND user_pass = '" . mysqli_real_escape_string($conn,$_POST['user_pass']) . "'";
                          
@@ -101,10 +95,12 @@ else
                     {
                         $_SESSION['user_id']    = $row['user_id'];
                         $_SESSION['user_name']  = $row['user_name'];
-                        $_SESSION['user_level'] = $row['user_level'];
+                        $_SESSION['user_firstname']  = $row['user_firstname'];
+                        $_SESSION['user_Bio'] = $row['BIO'];
+                        $_SESSION['user_ProfilePic'] = $row['ProfilePic'];
                     }
                      
-                    echo 'Welcome, ' . $_SESSION['user_name'] . '. <a href="index.php">Proceed to the forum overview</a>.';
+                    echo 'Welcome, ' . $_SESSION['user_name'] . '. <a href="user_homepage.php">Proceed to homepage</a>.';
                 }
             }
         }

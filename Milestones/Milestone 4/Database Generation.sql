@@ -14,13 +14,21 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 CREATE SCHEMA IF NOT EXISTS `IcarusProject` DEFAULT CHARACTER SET utf8 ;
 USE `IcarusProject` ;
 
+DROP TABLE IF EXISTS `IcarusProject`.`users`;
 CREATE TABLE IF NOT EXISTS `IcarusProject`.`users` (
 `user_id` INT(8) NOT NULL AUTO_INCREMENT,
 `user_ST` VARCHAR(1) NOT NULL,
-`user_name` VARCHAR(30) NOT NULL,
+`user_name` VARCHAR(10) NOT NULL,
+`user_firstname` VARCHAR(30) NOT NULL,
+`user_lastname` VARCHAR(30) NOT NULL,
 `user_pass` VARCHAR(255) NOT NULL,
 `user_email` VARCHAR(255) NOT NULL,
 `user_date` DATETIME NOT NULL,
+`Course1` VARCHAR(10) NULL,
+`Course2` VARCHAR(10) NULL,
+`Course3` VARCHAR(10) NULL,
+`BIO` VARCHAR(120) NULL,
+`ProfilePic` VARCHAR(100) NULL,
 PRIMARY KEY (`user_id`))
 ENGINE = InnoDB;
 

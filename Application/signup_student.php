@@ -21,6 +21,8 @@ if($_SERVER['REQUEST_METHOD'] != 'POST')
     /*the form hasn't been posted yet, display it
       note that the action="" will cause the form to post to the same page it is on */
     echo '<form method="post" action="">
+        First Name: <input type="text" name="user_firstname" />
+        Last Name: <input type="text" name="user_lastname" />
         Username: <input type="text" name="user_name" />
         Password: <input type="password" name="user_pass">
         Password again: <input type="password" name="user_pass_check">
@@ -81,12 +83,14 @@ else
     {
         // This will be the student table insert. ->
 
-        $sql = "INSERT INTO users(user_name, user_pass, user_email ,user_date, user_ST)
+        $sql = "INSERT INTO users(user_name, user_pass, user_email ,user_date, user_ST,  user_firstname, user_lastname)
                 VALUES('" . mysqli_real_escape_string($conn,$_POST['user_name']) . "',
                        '" . mysqli_real_escape_string($conn,$_POST['user_pass']) . "',
                        '" . mysqli_real_escape_string($conn,$_POST['user_email']) . "',
                         NOW(),
-                        's'
+                        's',
+                        '" . mysqli_real_escape_string($conn,$_POST['user_firstname']) . "',
+                        '" . mysqli_real_escape_string($conn,$_POST['user_lastname']) . "'
                         )";
                    
         
