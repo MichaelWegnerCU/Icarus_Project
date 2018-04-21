@@ -99,8 +99,8 @@ else
                         $_SESSION['user_Bio'] = $row['BIO'];
                         $_SESSION['user_ProfilePic'] = $row['ProfilePic'];
                     }
-                     
-                    echo 'Welcome, ' . $_SESSION['user_name'] . '. <a href="user_homepage.php">Proceed to homepage</a>.';
+                    echo "<script> window.location.assign('user_homepage.php'); </script>"; //Will load the user homepage upon login
+                   
                 }
             }
         }

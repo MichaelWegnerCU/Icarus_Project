@@ -11,18 +11,25 @@ include 'login_header.php';
  $dbname     = 'IcarusProject';
 
 $conn = new mysqli($server, $username, $password, $dbname);
+
+$sql = "SELECT BIO FROM users WHERE user_name= '".$_SESSION['user_name']. "' ";
+$result = mysqli_query($conn, $sql);
+
+$row = mysqli_fetch_assoc($result);
+mysqli_close($conn);
+
+
  echo'
       <div class="container">
            <div class="row">
                 <div class="col-md-3">
                     <div class="container">
                           <img src="ProfilePics/default_profile_pic.png" class="img-rounded" alt="test" width="240" height="240">';
-                          echo '<p></p>';
-                          echo 'Welcome, ' . $_SESSION['user_name'];
-                          echo' '. $_SESSION['user_Bio'];
+                          echo '<br></br>';
+                          echo $_SESSION['user_name'] . "<br>";
+                          echo $row["BIO"];
                           echo'
-                          <a href="addbio.php">Add BIO</a>
-                          <p>Bio could go here.</p>             
+                          <a href="addbio.php">Update Bio</a>           
                     </div>
                 </div>
                 <div class="col-md-9">
@@ -62,5 +69,6 @@ $conn = new mysqli($server, $username, $password, $dbname);
            </div>
       </div>
 ';
+include 'footer.php';
 
 ?>
