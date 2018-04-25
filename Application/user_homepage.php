@@ -24,10 +24,10 @@ mysqli_close($conn);
            <div class="row">
                 <div class="col-md-3">
                     <div class="container">
-                          <img src="ProfilePics/default_profile_pic.png" class="img-rounded" alt="test" width="240" height="240">';
+                          <img src="Pics/profilepics/default_profile_pic.png" class="img-rounded" alt="test" width="240" height="240">';
                           echo '<br></br>';
                           echo $_SESSION['user_name'] . "<br>";
-                          echo $row["BIO"];
+                          echo $row["BIO"] . "<br>";
                           echo'
                           <a href="addbio.php">Update Bio</a>           
                     </div>
@@ -50,8 +50,10 @@ mysqli_close($conn);
                               </li>
                             </ul>
                           </div>
-                        </nav>
-                        <div >
+                        </nav>';
+						if ($row["Courses"]==1){
+						echo '
+                        <div>
                         <h4>Course 1</h4>
                         <h4>Course 2</h4>
                         <h4>Course 3</h4>
@@ -64,7 +66,8 @@ mysqli_close($conn);
                              <div class= "col-sm">
                              <a href="addclass.php">Add Class</a>
                              </div>
-                        </div>
+                        </div>';}
+						echo '
                 </div>
            </div>
       </div>
