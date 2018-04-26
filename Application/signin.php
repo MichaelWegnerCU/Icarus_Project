@@ -1,72 +1,25 @@
 <?php
-//signin.php
+//send_bio.php
 session_start();
+
 include 'connect.php';
-include 'header.php';
+include 'login_header.php';
 
 $server = '127.0.0.1';
 $username   = 'root';
 $password   = 'new_password';
 $dbname     = 'IcarusProject';
+ 
 
 $conn = new mysqli($server, $username, $password, $dbname);
- 
-echo '<h3>Sign in</h3>';
- 
-//first, check if the user is already signed in. If that is the case, there is no need to display this page
-if(isset($_SESSION['signed_in']) && $_SESSION['signed_in'] == true)
-{
-    echo 'You are already signed in, you can <a href="signout.php">sign out</a> if you want.';
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
-else
-{
-    if($_SERVER['REQUEST_METHOD'] != 'POST')
-    {
-        /*the form hasn't been posted yet, display it
-          note that the action="" will cause the form to post to the same page it is on */
-        echo '<form method="post" action="">
-            Username: <input type="text" name="user_name" />
-            Password: <input type="password" name="user_pass">
-            <input type="submit" value="Sign in" />
-         </form>';
-    }
-    else
-    {
-        /* so, the form has been posted, we'll process the data in three steps:
-            1.  Check the data
-            2.  Let the user refill the wrong fields (if necessary)
-            3.  Varify if the data is correct and return the correct response
-        */
-        $errors = array(); /* declare the array for later use */
-         
-        if(!isset($_POST['user_name']))
-        {
-            $errors[] = 'The username field must not be empty.';
-        }
-         
-        if(!isset($_POST['user_pass']))
-        {
-            $errors[] = 'The password field must not be empty.';
-        }
-         
-        if(!empty($errors)) /*check for an empty array, if there are errors, they're in this array (note the ! operator)*/
-        {
-            echo 'Uh-oh.. a couple of fields are not filled in correctly..';
-            echo '<ul>';
-            foreach($errors as $key => $value) /* walk through the array so all the errors get displayed */
-            {
-                echo '<li>' . $value . '</li>'; /* this generates a nice error list */
-            }
-            echo '</ul>';
-        }
-        else
-        {
-            //the form has been posted without errors, so save it
-            //notice the use of mysql_real_escape_string, keep everything safe!
-            //also notice the sha1 function which hashes the password  <- may use this to better secure passwords, was changed to better test inital setup
-            
-           
-            $sql = "SELECT user_id, user_name FROM users WHERE user_name = '" . mysqli_real_escape_string($conn,$_POST['user_name']) . "'
+
+//Connecting to sql db.
+//Sending form data to sql db.
+  $sql = "SELECT user_id, user_name FROM users WHERE user_name = '" . mysqli_real_escape_string($conn,$_POST['user_name']) . "'
                     AND user_pass = '" . mysqli_real_escape_string($conn,$_POST['user_pass']) . "'";
                          
             $result = mysqli_query($conn,$sql);
@@ -103,9 +56,5 @@ else
                    
                 }
             }
-        }
-    }
-}
- 
-include 'footer.php';
+
 ?>
