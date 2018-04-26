@@ -40,8 +40,8 @@ if($_SERVER['REQUEST_METHOD'] != 'POST')
                 <h3> Are you a student or a teacher?</h3>
                 <p></p>
                 <div id="st_select" style="padding-left: 100px;">
-                    <a href="signup_student.php"><button>Student</button></a>
-                    <a href="signup_teacher.php"><button>Teacher</button></a>
+                    <a href="signup_student.php">Student</a>
+                    <a href="signup_teacher.php">Teacher</a>
                 </div>
                 
             </div>
