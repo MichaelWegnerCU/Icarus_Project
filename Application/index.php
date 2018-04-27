@@ -19,6 +19,9 @@ if($_SERVER['REQUEST_METHOD'] != 'POST')
     /*the form hasn't been posted yet, display it
       note that the action="" will cause the form to post to the same page it is on */
     echo'
+	<style>
+		<link rel="stylesheet" href="style.css" type="text/css">
+	</style>
 	<div class="container">
 		<div class= "row">
 				<div class= "col-sm" style="padding-top: 75px;padding-left: 75px;"">

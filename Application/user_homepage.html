@@ -1,0 +1,382 @@
+<!doctype html>
+<html>
+<style>
+body {font-family: Arial;}
+
+/* Style the tab */
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+li * {
+  float: left;
+}
+li, h3 {
+  clear:both;
+  list-style:none;
+}
+
+/* Heading */
+h3,
+label[for='new-task'] {
+  color: #333;
+  font-weight: 700;
+  font-size: 15px;
+  border-bottom: 2px solid #333;
+  padding: 30px 0 10px;
+  margin: 0;
+  text-transform: uppercase;
+}
+input[type="text"] {
+  margin: 0;
+  font-size: 18px;
+  line-height: 18px;
+  height: 18px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  background: #fff;
+  border-radius: 6px;
+  font-family: Lato, sans-serif;
+  color: #888;
+}
+input[type="text"]:focus {
+  color: #333;
+}
+	
+label[for='new-task'] {
+  display: block;
+  margin: 0 0 20px;
+}
+input#new-task {
+  float: left;
+  width: 318px;
+}
+
+/* New Task */
+label[for='new-task'] {
+  display: block;
+  margin: 0 0 20px;
+}
+input#new-task {
+  float: left;
+  width: 318px;
+}
+p > button:hover {
+  color: #0FC57C;
+}
+
+/* Task list */
+li {
+  overflow: hidden;
+  padding: 20px 0;
+  border-bottom: 1px solid #eee;
+}
+li > input[type="checkbox"] {
+  margin: 0 10px;
+  position: relative;
+  top: 15px;
+}
+li > label {
+  font-size: 18px;
+  line-height: 40px;
+  width: 237px;
+  padding: 0 0 0 11px;
+}
+li >  input[type="text"] {
+  width: 226px;
+}
+li > .delete:hover {
+  color: #CF2323;
+}
+
+/* Completed */
+#completed-tasks label {
+  text-decoration: line-through;
+  color: #888;
+}
+
+/* Edit Task */
+ul li input[type=text] {
+  display:none;
+}
+
+ul li.editMode input[type=text] {
+  display:block;
+}
+
+ul li.editMode label {
+  display:none;
+}	
+	
+	
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.homecontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+</style>
+
+<body>
+	
+	<div class="container">
+           <div class="row">
+                <div class="col-md-3">
+                    <div class="container">
+                          <img src="Pics/profilepics/default_profile_pic.png" class="img-rounded" alt="test" width="240" height="240">
+                          <br></br>
+						  <?php
+                          echo $_SESSION['user_name'] . "<br>";
+                          echo $_SESSION["BIO"] . "<br>";
+						  ?>
+                          
+                          <a href="addbio.php">Update Bio</a>           
+                    </div>
+                </div>
+                <div class="col-md-9">
+                     <div class="tab">
+						  <button class="tablinks" onclick="openTab(event, 'Courses')">Courses</button>
+						  <button class="tablinks" onclick="openTab(event, 'QA')">Questions Asked</button>
+						  <button class="tablinks" onclick="openTab(event, 'TODO')">To Do List</button>
+					 </div>
+
+					  	<div id="Courses" class="homecontent">
+						  <h3>Courses</h3>
+						  <div class="row">
+								<div class= "col-sm">
+								</div>
+
+								<div class= "col-sm">
+								</div>
+								<div class= "col-sm">
+								<a href="addclass.php">Add Class</a>
+								</div>
+								</div>
+						</div>
+
+						<div id="QA" class="homecontent">
+						  <h3>Questions Asked</h3>
+						  <p>Paris is the capital of France.</p> 
+						</div>
+
+						<div id="TODO" class="homecontent">
+						  <div class="container">
+      						<p>
+								<label for="new-task">Add Item</label><input id="new-task" type="text"><button>Add</button>
+						  	</p>
+
+						  <h3>Todo</h3>
+						  <ul id="incomplete-tasks">
+							<li><input type="checkbox"><label>Write simple python script for website</label><input type="text"><button class="edit">Edit</button><button class="delete">Delete</button></li>
+							<li><input type="checkbox"><label>Midterm in CSCI next thursday</label><input type="text"><button class="edit">Edit</button><button class="delete">Delete</button></li>
+
+						  </ul>
+
+						  <h3>Completed</h3>
+						  <ul id="completed-tasks">
+							<li><input type="checkbox" checked><label>HW Assignment 5</label><input type="text"><button class="edit">Edit</button><button class="delete">Delete</button></li>
+						  </ul>
+						</div>
+
+						</div>
+                </div>
+           </div>
+      </div>
+<script>
+function openTab(evt, tabname) {
+    var i, homecontent, tablinks;
+    homecontent = document.getElementsByClassName("homecontent");
+    for (i = 0; i < homecontent.length; i++) {
+        homecontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(tabname).style.display = "block";
+    evt.currentTarget.className += " active";
+	
+	var taskInput = document.getElementById("new-task");
+var addButton = document.getElementsByTagName("button")[0];
+var incompleteTasksHolder = document.getElementById("incomplete-tasks");
+var completedTasksHolder = document.getElementById("completed-tasks");
+
+//New Task List Item
+var createNewTaskElement = function(taskString) {
+  //Create List Item
+  var listItem = document.createElement("li");
+
+  //input (checkbox)
+  var checkBox = document.createElement("input"); // checkbox
+  //label
+  var label = document.createElement("label");
+  //input (text)
+  var editInput = document.createElement("input"); // text
+  //button.edit
+  var editButton = document.createElement("button");
+  //button.delete
+  var deleteButton = document.createElement("button");
+  
+      //Each element needs modifying
+  
+  checkBox.type = "checkbox";
+  editInput.type = "text";
+  
+  editButton.innerText = "Edit";
+  editButton.className = "edit";
+  deleteButton.innerText = "Delete";
+  deleteButton.className = "delete";
+  
+  label.innerText = taskString;
+  
+    
+      // each element needs appending
+  listItem.appendChild(checkBox);
+  listItem.appendChild(label);
+  listItem.appendChild(editInput);
+  listItem.appendChild(editButton);
+  listItem.appendChild(deleteButton);
+
+  return listItem;
+}
+
+// Add a new task
+var addTask = function() {
+  console.log("Add task...");
+  //Create a new list item with the text from #new-task:
+  var listItem = createNewTaskElement(taskInput.value);
+  //Append listItem to incompleteTasksHolder
+  incompleteTasksHolder.appendChild(listItem);
+  bindTaskEvents(listItem, taskCompleted);  
+  
+  taskInput.value = "";   
+}
+
+// Edit an existing task
+var editTask = function() {
+  console.log("Edit Task...");
+  
+  var listItem = this.parentNode;
+  
+  var editInput = listItem.querySelector("input[type=text]")
+  var label = listItem.querySelector("label");
+  
+  var containsClass = listItem.classList.contains("editMode");
+    //if the class of the parent is .editMode 
+  if(containsClass) {
+      //switch from .editMode 
+      //Make label text become the input's value
+    label.innerText = editInput.value;
+  } else {
+      //Switch to .editMode
+      //input value becomes the label's text
+    editInput.value = label.innerText;
+  }
+  
+    // Toggle .editMode on the parent
+  listItem.classList.toggle("editMode");
+ 
+}
+
+
+// Delete an existing task
+var deleteTask = function() {
+  console.log("Delete task...");
+  var listItem = this.parentNode;
+  var ul = listItem.parentNode;
+  
+  //Remove the parent list item from the ul
+  ul.removeChild(listItem);
+}
+
+// Mark a task as complete 
+var taskCompleted = function() {
+  console.log("Task complete...");
+  //Append the task list item to the #completed-tasks
+  var listItem = this.parentNode;
+  completedTasksHolder.appendChild(listItem);
+  bindTaskEvents(listItem, taskIncomplete);
+}
+
+// Mark a task as incomplete
+var taskIncomplete = function() {
+  console.log("Task Incomplete...");
+  // When checkbox is unchecked
+  // Append the task list item #incomplete-tasks
+  var listItem = this.parentNode;
+  incompleteTasksHolder.appendChild(listItem);
+  bindTaskEvents(listItem, taskCompleted);
+}
+
+var bindTaskEvents = function(taskListItem, checkBoxEventHandler) {
+  console.log("Bind list item events");
+  //select taskListItem's children
+  var checkBox = taskListItem.querySelector("input[type=checkbox]");
+  var editButton = taskListItem.querySelector("button.edit");
+  var deleteButton = taskListItem.querySelector("button.delete");
+  
+  //bind editTask to edit button
+  editButton.onclick = editTask;
+  
+  //bind deleteTask to delete button
+  deleteButton.onclick = deleteTask;
+  
+  //bind checkBoxEventHandler to checkbox
+  checkBox.onchange = checkBoxEventHandler;
+}
+
+var ajaxRequest = function() {
+  console.log("AJAX Request");
+}
+
+// Set the click handler to the addTask function
+//addButton.onclick = addTask;
+addButton.addEventListener("click", addTask);
+addButton.addEventListener("click", ajaxRequest);
+
+
+// Cycle over the incompleteTaskHolder ul list items
+for(var i = 0; i <  incompleteTasksHolder.children.length; i++) {
+    // bind events to list item's children (taskCompleted)
+  bindTaskEvents(incompleteTasksHolder.children[i], taskCompleted);
+}
+// Cycle over the completeTaskHolder ul list items
+for(var i = 0; i <  completedTasksHolder.children.length; i++) {
+    // bind events to list item's children (taskIncompleted)
+  bindTaskEvents(completedTasksHolder.children[i], taskIncomplete); 
+
+}
+}
+</script>	
+</body>
+</html>
