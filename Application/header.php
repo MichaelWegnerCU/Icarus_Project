@@ -27,6 +27,7 @@ session_start();
 		background-color: rgb(0,0,0); /* Fallback color */
 		background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 	}
+	
 
 	/* Modal Content */
 	.modal-content {
@@ -88,7 +89,7 @@ session_start();
 							</div>
 						  </div> -->
 					<!-- Trigger/Open The Modal -->
-					<a id='SignInBtn' class="nav-link">Sign In</a>
+					<a class="nav-link" id="SignInBtn">Sign In</a>
 					<!-- The Modal -->
 					<div id="SignInModal" class="modal">
 
@@ -97,14 +98,25 @@ session_start();
 						 <span class="close" style="padding-left:85%; "> &times;</span>
 						 <form method="post" action="signin.php">
 								<div>
-								  <h3>Login information</h3><br>
-								  <label for="usrnm" class="ui-hidden-accessible">Username:</label>
+								  <h3 style="color: maroon">Login information</h3><br>
+								  <label for="usrnm" class="ui-hidden-accessible" style="color: maroon">Username:</label>
 								  <input type="text" name="user_name" id="usrnm" placeholder="Username">
-								  <label for="pswd" class="ui-hidden-accessible">Password:</label>
+								  <label for="pswd" class="ui-hidden-accessible" style="color: maroon">Password:</label>
 								  <input type="password" name="user_pass" id="pswd" placeholder="Password">
 								  <input type="submit" data-inline="true" value="Log in">
+								  <br>
 								</div>
-					    </form> 
+					    </form>
+						<br>
+						<br>
+						<p style="color: maroon">New user? Sign up!</p>
+						<h5 style="color: maroon"> Are you a student or a teacher?</h5>
+                		<p></p>
+                		<div id="st_select">
+                    			<a href="signup_student.php"><button>Student</button></a>
+                    			<a href="signup_teacher.php"><button>Teacher</button></a>
+                		</div>
+						
 					  </div>
 
 					</div>
@@ -118,7 +130,7 @@ session_start();
 
 		// Get the button that opens the modal
 		var btn = document.getElementById("SignInBtn");
-
+		
 		// Get the <span> element that closes the modal
 		var span = document.getElementsByClassName("close")[0];
 
@@ -126,16 +138,20 @@ session_start();
 		btn.onclick = function() {
 			modal.style.display = "block";
 		}
+		
+	
 
 		// When the user clicks on <span> (x), close the modal
 		span.onclick = function() {
 			modal.style.display = "none";
+			
 		}
-
+		
 		// When the user clicks anywhere outside of the modal, close it
 		window.onclick = function(event) {
 			if (event.target == modal) {
 				modal.style.display = "none";
+				
 			}
 		}
 	</script>

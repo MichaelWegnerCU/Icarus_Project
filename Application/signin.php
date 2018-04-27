@@ -36,7 +36,7 @@ if ($conn->connect_error) {
                 //2. the query returned an empty result set, the credentials were wrong
                 if(mysqli_num_rows($result) == 0)
                 {
-                    echo 'You have supplied a wrong user/password combination. Please try again. <a href="signin.php">Sign in.</a>';
+                    echo 'You have supplied a wrong user/password combination. Please try again. <a href="index.php">Sign in.</a>';
                 }
                 else
                 {
