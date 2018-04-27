@@ -81,23 +81,29 @@ button:hover {
 		<div class="column-sm">
 			<p>Please fill in this form to create an account.</p>
 			<hr>
-			<label for="FirstName"><b>First Name:</b></label>
-			<input type="text" placeholder="Enter First name" name="user_firstname" required>
+			<div class= "row">
+	<div class= "col-6">
+	<label for="FirstName"><b>First Name:</b></label>
+    <input type="text" placeholder="Enter First name" name="user_firstname" required>
+	 
+	<label for="LastName"><b>Last Name:</b></label>
+    <input type="text" placeholder="Enter Last name" name="user_lastname" required>
+	  
+	<label for="UserName"><b>User Name:</b></label>
+    <input type="text" placeholder="Enter a user name" name="user_name" required>
+	</div>	
 
-			<label for="LastName"><b>Last Name:</b></label>
-			<input type="text" placeholder="Enter Last name" name="user_lastname" required>
+	<div class="col-6">	
+    <label for="email"><b>Email:</b></label>
+    <input type="text" placeholder="Enter Email" name="user_email" required>
 
-			<label for="UserName"><b>User Name:</b></label>
-			<input type="text" placeholder="Enter a user name" name="user_name" required>  
+    <label for="psw"><b>Password:</b></label>
+    <input type="password" placeholder="Enter Password" name="user_pass" required>
 
-			<label for="email"><b>Email:</b></label>
-			<input type="text" placeholder="Enter Email" name="user_email" required>
-
-			<label for="psw"><b>Password:</b></label>
-			<input type="password" placeholder="Enter Password" name="user_pass" required>
-
-			<label for="psw-repeat"><b>Repeat Password:</b></label>
-			<input type="password" placeholder="Repeat Password" name="user_pass_check" required>
+    <label for="psw-repeat"><b>Repeat Password:</b></label>
+    <input type="password" placeholder="Repeat Password" name="user_pass_check" required>
+	</div>
+	</div>
 		</div>
 	  </div>
     <label>

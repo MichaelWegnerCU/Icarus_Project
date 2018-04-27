@@ -33,7 +33,7 @@ if($_SERVER['REQUEST_METHOD'] != 'POST')
     <div class="container">
         <div class="row">
             <div class="col-sm" id="welcome_statement">
-                <p> Icarus allows students and teachers to connect live during lectures and provides students with better resource to aid in the learning process. Icarus also gives teachers tools to easily meausure student progress and analyze participation.</p>
+                <p>&emsp; Icarus allows students and teachers to connect live during lectures and provides students with better resource to aid in the learning process. Icarus also gives teachers tools to easily meausure student progress and analyze participation.</p>
 
             </div>
             <div class="col-sm" id="who_are_you" >
