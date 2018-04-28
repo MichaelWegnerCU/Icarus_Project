@@ -64,7 +64,7 @@ session_start();
                     <a class="nav-link" href="index.php">Home </a>
                 </li>
                  <li class="nav-item">
-                    <a class="nav-link" href="#">Sudo link 1</a>
+                    <a class="nav-link" href="contact_us.html">Contact Us</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Sudo link 2</a>
