@@ -59,7 +59,7 @@ session_start();
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<div id="navbar1" >
 		 <ul class="navbar-nav">
-			 	<img src="Pics/logo/icarusFeather.png" alt="Icarus Logo" width="75" height="50">
+			 	<img src="Pics/logo/IcarusFeather.png" alt="Icarus Logo" width="75" height="50">
                 <li class="nav-item active">
                     <a class="nav-link" href="index.php">Home </a>
                 </li>
