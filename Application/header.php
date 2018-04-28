@@ -67,7 +67,7 @@ session_start();
                     <a class="nav-link" href="#">Sudo link 1</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Sudo link 2</a>
+                    <a class="nav-link" href="terms_and_conditions.php">Terms and Conditions</a>
                 </li>
                 <li class="nav-item">  <!-- This is the sign in pop up --> 
                      <!-- <a class="nav-link" href="signin.php">Sign In</a> -->
