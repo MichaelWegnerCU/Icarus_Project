@@ -59,7 +59,7 @@ session_start();
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<div id="navbar1" >
 		 <ul class="navbar-nav">
-			 	<img src="Pics/logo/icarusFeather.png" alt="Icarus Logo" width="75" height="50">
+			 	<img src="Pics/logo/IcarusFeather.png" alt="Icarus Logo" width="75" height="50">
                 <li class="nav-item active">
                     <a class="nav-link" href="index.php">Home </a>
                 </li>
@@ -67,7 +67,7 @@ session_start();
                     <a class="nav-link" href="contact_us.html">Contact Us</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Sudo link 2</a>
+                    <a class="nav-link" href="terms_and_conditions.php">Terms and Conditions</a>
                 </li>
                 <li class="nav-item">  <!-- This is the sign in pop up --> 
                      <!-- <a class="nav-link" href="signin.php">Sign In</a> -->
