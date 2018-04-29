@@ -28,6 +28,7 @@ if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()){
 
     	echo "". $row["ClassCode"] . "" . $row["ClassNumber"] . " " . $row["ClassName"]. " Description: ". $row["ClassDescription"]. "<br>";
+    	echo "<button type = "button"> Add class </button>";
 } 
 }
 
