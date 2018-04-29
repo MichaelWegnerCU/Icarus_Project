@@ -29,7 +29,8 @@ mysqli_close($conn);
                           echo $_SESSION['user_name'] . "<br>";
                           echo $row["BIO"] . "<br>";
                           echo'
-                          <a href="addbio.php">Update Bio</a>           
+                          <a href="addbio.php">Update Bio</a>';
+                          echo'
                     </div>
                 </div>
                 <div class="col-md-9">
