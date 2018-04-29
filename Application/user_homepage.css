@@ -1,5 +1,11 @@
 /* Style the tab */
-
+body {
+	
+	/*background-color: aqua;*/
+}
+#main_cont{
+	height: 600px;
+}
 	
 .tab {
     overflow: hidden;
