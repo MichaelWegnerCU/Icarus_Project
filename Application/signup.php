@@ -3,7 +3,9 @@
 include 'connect.php';
 include 'header.php';
  
-echo '<h3>Sign up</h3>';
+echo '
+<h3>Sign up</h3>';
+
 
 $server = '127.0.0.1';
  $username   = 'root';

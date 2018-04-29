@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+	<head>
+		<link rel="stylesheet" href="user_homepage.css" />
+		<script src="user_homepage.js"></script>
+	</head>	
+<body>
+	
+	<div class="container">
+           <div class="row">
+                <div class="col-md-3">
+                    <div class="container">
+                          <img src="Pics/profilepics/default_profile_pic.png" class="img-rounded" alt="test" width="240" height="240">
+                          <br></br>
+						  <?php
+                          echo $_SESSION['user_name'] . "<br>";
+                          echo $_SESSION["BIO"] . "<br>";
+						  ?>
+                          
+                          <a href="addbio.php">Update Bio</a>           
+                    </div>
+                </div>
+                <div class="col-md-9">
+                     <div class="tab">
+						  <button class="tablinks" onclick="openTab(event, 'Courses')">Courses</button>
+						  <button class="tablinks" onclick="openTab(event, 'QA')">Questions Asked</button>
+						  <button class="tablinks" onclick="openTab(event, 'TODO')">To Do List</button>
+					 </div>
+
+					  	<div id="Courses" class="homecontent">
+						  <h3>Courses</h3>
+						  <div class="row">
+								<div class= "col-sm">
+								</div>
+
+								<div class= "col-sm">
+								</div>
+								<div class= "col-sm">
+								<a href="addclass.php">Add Class</a>
+								</div>
+								</div>
+						</div>
+
+						<div id="QA" class="homecontent">
+						  <h3>Questions Asked</h3>
+						  <p>Will display history of questions/ ask a question maybe.</p> 
+						</div>
+
+						<div id="TODO" class="homecontent">
+						  <div class="container">
+      						<div id="todo_body">
+      							<input id="todo_input" placeholder="What needs to be done?">
+      							<ul id="list"></ul> 
+   							</div>
+						  </div>
+
+						</div>
+                </div>
+           </div>
+      </div>
+
+</body>
+</html>

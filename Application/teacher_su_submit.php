@@ -1,34 +1,28 @@
 <?php
-//index.php
-include 'connect.php';
-include 'header.php';
+//teacher_su_submit.php
+session_start();
 
- $server = '127.0.0.1';
- $username   = 'root';
- $password   = 'new_password';
- $dbname     = 'IcarusProject';
+include 'connect.php';
+include 'login_header.php';
+
+$server = '127.0.0.1';
+$username   = 'root';
+$password   = 'new_password';
+$dbname     = 'IcarusProject';
+ 
 
 $conn = new mysqli($server, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
-} 
- 
-if($_SERVER['REQUEST_METHOD'] != 'POST')
-{
-    /*the form hasn't been posted yet, display it
-      note that the action="" will cause the form to post to the same page it is on */
-    //Aidan Edit: Changed the format to be consistent with the other includes on the page
-    include 'welcome.php';
-} 
-else
-{
-    /* so, the form has been posted, we'll process the data in three steps:
-        1.  Check the data
-        2.  Let the user refill the wrong fields (if necessary)
-        3.  Save the data 
-    */
-    $errors = array(); /* declare the array for later use */
+}
+
+//Connecting to sql db.
+//Sending form data to sql db.
+// This will be the student table insert. ->
+
+
+$errors = array(); /* declare the array for later use */
      
     if(isset($_POST['user_name']))
     {
@@ -69,17 +63,20 @@ else
             echo '<li>' . $value . '</li>'; /* this generates a nice error list */
         }
         echo '</ul>';
+		echo '<a href="signup_student.php"><button>Sign Up</button></a>';
     }
     else
     {
         // This will be the student table insert. ->
 
-        $sql = "INSERT INTO users(user_name, user_pass, user_email ,user_date, user_ST)
+        $sql = "INSERT INTO users(user_name, user_pass, user_email ,user_date, user_ST,  user_firstname, user_lastname)
                 VALUES('" . mysqli_real_escape_string($conn,$_POST['user_name']) . "',
                        '" . mysqli_real_escape_string($conn,$_POST['user_pass']) . "',
                        '" . mysqli_real_escape_string($conn,$_POST['user_email']) . "',
                         NOW(),
-                        's'
+                        't',
+                        '" . mysqli_real_escape_string($conn,$_POST['user_firstname']) . "',
+                        '" . mysqli_real_escape_string($conn,$_POST['user_lastname']) . "'
                         )";
                    
         
@@ -93,10 +90,12 @@ else
         }
         else
         {
-            echo 'Successfully registered. You can now <a href="signin.php">sign in</a> and start posting! :-)';
+			$_SESSION['user_name']  = $_POST['user_name'];
+            echo "<script> window.location.assign('user_homepage.php'); </script>";
         }
+       
+                      
     }
-}
- 
-include 'footer.php';
+
+
 ?>

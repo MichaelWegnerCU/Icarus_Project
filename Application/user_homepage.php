@@ -16,9 +16,11 @@ $sql = "SELECT BIO FROM users WHERE user_name= '".$_SESSION['user_name']. "' ";
 $result = mysqli_query($conn, $sql);
 
 $row = mysqli_fetch_assoc($result);
+$_SESSION["BIO"]=$row["BIO"];
 mysqli_close($conn);
 
 
+<<<<<<< HEAD
  echo'
       <div class="container">
            <div class="row">
@@ -73,6 +75,11 @@ mysqli_close($conn);
            </div>
       </div>
 ';
+=======
+include 'user_homepage.html';
+ 
+
+>>>>>>> d82f536ca99d3e55e4c28cca224605ba98a3f2df
 include 'footer.php';
 
 ?>

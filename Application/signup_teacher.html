@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<style>
+
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+}
+
+/* Add padding to container elements */
+.container {
+    padding: 16px;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+    .cancelbtn, .signupbtn {
+       width: 100%;
+    }
+}
+</style>
+<body>
+
+<form method="post" action="teacher_su_submit.php" style="border:1px solid #ccc">
+  <div class="container">	
+    <h1>Teacher Sign Up</h1>
+     <div class="row">
+        <div class="column-sm">
+            <p>Please fill in this form to create an account.</p>
+            <hr>
+            <div class= "row">
+    <div class= "col-6">
+    <label for="FirstName"><b>First Name:</b></label>
+    <input type="text" placeholder="Enter First name" name="user_firstname" required>
+     
+    <label for="LastName"><b>Last Name:</b></label>
+    <input type="text" placeholder="Enter Last name" name="user_lastname" required>
+      
+    <label for="UserName"><b>User Name:</b></label>
+    <input type="text" placeholder="Enter a user name" name="user_name" required>
+    </div>  
+
+    <div class="col-6"> 
+    <label for="email"><b>Email:</b></label>
+    <input type="text" placeholder="Enter Email" name="user_email" required>
+
+    <label for="psw"><b>Password:</b></label>
+    <input type="password" placeholder="Enter Password" name="user_pass" required>
+
+    <label for="psw-repeat"><b>Repeat Password:</b></label>
+    <input type="password" placeholder="Repeat Password" name="user_pass_check" required>
+    </div>
+    </div>
+        </div>
+      </div>
+    <label>
+        <button type="reset" class="btn-default">Clear Fields</button>
+    </label>
+    <br>
+    
+    <label>
+      <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+    </label>
+    
+    
+    <!-- Added popup window for terms and conditions -->
+    <p>By creating an account you agree to our <a href="" style="color:dodgerblue" onclick="window.open('terms_and_conditions.php','popUpWindow','height=500,width=400,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');">Terms and Conditions.</a></p>
+	  
+    <div class="clearfix">
+		<div class="row">
+		  <div class="col-3">
+			    <button type="submit" class="signupbtn" style="width: 95%;">Sign Up</button>
+	      </div>
+		  <div class="col-3">
+			  <a href="index.php"><button type="button" class="cancelbtn" style="width: 95%;">Cancel</button></a>
+	      </div>
+		  <div class="col-3">
+		</div>	
+		</div>	
+    </div>
+  </div>
+</form>
+
+</body>
+</html>
