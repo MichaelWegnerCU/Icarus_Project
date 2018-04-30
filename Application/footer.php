@@ -1,5 +1,5 @@
 </div><!-- content -->
-</div><!-- wrapper -->
+
 <div class="container" id="footer">
         <div class="row">
             <div class="col" id="Team Members">

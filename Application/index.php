@@ -3,17 +3,17 @@
 include 'connect.php';
 include 'header.php';
 
+
  $server = '127.0.0.1';
  $username   = 'root';
  $password   = 'new_password';
  $dbname     = 'IcarusProject';
-
 $conn = new mysqli($server, $username, $password, $dbname);
-// Check connection
+// // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
- 
+ echo '<p>connection: ' + $conn->connect_error + '<p>';
 if($_SERVER['REQUEST_METHOD'] != 'POST')
 {
     /*the form hasn't been posted yet, display it

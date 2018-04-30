@@ -5,12 +5,12 @@ session_start();
 include 'connect.php';
 include 'login_header.php';
 
+
 $server = '127.0.0.1';
 $username   = 'root';
 $password   = 'new_password';
 $dbname     = 'IcarusProject';
  
-
 $conn = new mysqli($server, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
