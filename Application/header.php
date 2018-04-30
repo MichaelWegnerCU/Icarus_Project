@@ -116,9 +116,7 @@ session_start();
                     			<a href="signup_student.php"><button>Student</button></a>
                     			<a href="signup_teacher.php"><button>Teacher</button></a>
                 		</div>
-						
 					  </div>
-
 					</div>
                 </li>
             </ul>
